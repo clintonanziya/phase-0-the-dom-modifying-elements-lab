@@ -18,3 +18,9 @@ const src = babelResult.code
 jsdom({
   html, src
 });
+// Import chai only if it's not already defined
+if (!globalThis.chai) {
+  const chai = await import('chai');
+  globalThis.chai = chai;
+}
+
